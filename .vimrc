@@ -5,6 +5,7 @@ set nocompatible     " Make Vim behave in a more useful way
 set fileformat=unix  "<EOL> = <NL>
 set nobackup
 set cmdheight=1
+set laststatus=2     " Always show status line
 set ruler
 set history=50
 set noignorecase
@@ -20,6 +21,14 @@ set viminfo+=<50 " Maximum number of lines saved for each register
 
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
+
+" Open file under cursor
+":map <F12> :vertical wincmd f<CR>
+
+" Settings for taglist
+map <F12> :TlistToggle<CR>
+
+map <F11> :vsp .<CR>
 
 highlight Comment ctermfg=red
 
@@ -61,3 +70,6 @@ autocmd BufRead,BufNewFile *.py
   \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 autocmd BufRead,BufNewFile *.py map <F10> :w !python<CR>
+
+" Enable the ":Man" command
+runtime ftplugin/man.vim
