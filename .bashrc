@@ -1,3 +1,5 @@
+source ~/.git-completion.sh
+
 bind '"\C-i": menu-complete'
 
 alias ls='ls -F --color=tty --show-control-chars --group-directories-first'
@@ -12,6 +14,7 @@ alias grep='grep --color=tty -d skip'
 alias g='git'
 alias s='ssh'
 alias v='vim'
+alias vr='vim -R'
 alias vd='vimdiff'
 alias c='cvs'
 alias f='find'
@@ -23,7 +26,9 @@ alias check_dep='~/bin/check_dep.py'
 alias st='exec /opt/setup_toolchain.sh'
 
 export EDITOR='vim'
-export PS1="\[\e[1;33m\]\h [\@] <\w> -\u-\[\e[m\]\n\[\e[1;37m\]$\[\e[m\] "
+
+GITPS1='$(__git_ps1 "%s")'
+export PS1="\[\e[1;33m\]\h [\@] <\w> -\u-\[\e[m\]\n\[\e[1;37m\]${GITPS1}$\[\e[m\] "
 
 # Colorful man page
 #export PAGER='less'

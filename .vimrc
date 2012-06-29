@@ -22,13 +22,17 @@ set viminfo+=<50 " Maximum number of lines saved for each register
 au BufWinLeave * silent! mkview
 au BufWinEnter * silent! loadview
 
+" Enable pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
 " Open file under cursor
 ":map <F12> :vertical wincmd f<CR>
 
-" Settings for taglist
-map <F12> :TlistToggle<CR>
+map <right> :bn<CR>
+map <left> :bp<CR>
 
-map <F11> :vsp .<CR>
+map <F11> :NERDTreeToggle<CR>
 
 highlight Comment ctermfg=red
 
@@ -70,6 +74,11 @@ autocmd BufRead,BufNewFile *.py
   \ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 autocmd BufRead,BufNewFile *.py map <F10> :w !python<CR>
+
+"
+" Settings for taglist
+"
+map <F12> :TlistToggle<CR>
 
 " Enable the ":Man" command
 runtime ftplugin/man.vim

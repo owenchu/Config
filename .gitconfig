@@ -1,0 +1,19 @@
+[user]
+	name = Owen
+	email = owen.chu@iadea.com
+
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+
+[alias]
+    b  = branch
+	ci = commit
+	co = checkout
+	st = status
+
+[core]
+	excludesfile = /home/owen.chu/.gitignore_global
