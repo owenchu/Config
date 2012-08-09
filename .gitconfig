@@ -1,6 +1,6 @@
 [user]
 	name = Owen
-	email = owen.chu@iadea.com
+	email = owenchu@gmail.com
 
 [color]
 	ui = auto
@@ -14,6 +14,3 @@
 	ci = commit
 	co = checkout
 	st = status
-
-[core]
-	excludesfile = /home/owen.chu/.gitignore_global
