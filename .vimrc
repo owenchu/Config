@@ -18,10 +18,11 @@ set backspace+=start  " Start allow backspacing over the start of insert
 set viminfo='20  " Maximum number of previously edited files for which
                  " the marks are remembered
 set viminfo+=<50 " Maximum number of lines saved for each register
-
-filetype plugin indent on
+set splitbelow
+set splitright
 
 highlight Comment ctermfg=red
+highlight VisualNOS cterm=reverse
 
 "autocmd BufWinLeave * silent! mkview
 "autocmd BufWinEnter * silent! loadview
@@ -47,6 +48,24 @@ set termencoding=utf-8  " Encoding used for the terminal. This specifies what
                         " character encoding the keyboard produces and the
                         " display will understand.
 
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/IndexedSearch'
+filetype plugin indent on
+
+"let GtagsCscope_Auto_Load = 1
+"let GtagsCscope_Auto_Map = 1
+"let GtagsCscope_Quiet = 1
+"set cscopetag
+
 " Jump to the last position when reopening a file
 autocmd BufReadPost *
   \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -62,8 +81,12 @@ autocmd BufRead,BufNewFile *.rb map <F10> :% w !ruby<CR>
 map <F11> :NERDTreeToggle<CR>
 "map <F12> :TlistToggle<CR>
 
-" pathogen
-call pathogen#infect()
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Enable the ":Man" command
 "runtime ftplugin/man.vim
+
+autocmd BufNewFile,BufRead SConstruct,SConscript set filetype=python
