@@ -1,8 +1,10 @@
 autoload -U compinit && compinit
 autoload -U colors && colors
 
+setopt auto_cd
 setopt correct
 setopt ignoreeof
+setopt no_beep
 setopt noclobber
 setopt prompt_subst
 
