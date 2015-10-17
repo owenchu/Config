@@ -25,7 +25,7 @@
 
 [core]
 	editor = /usr/local/bin/vim
-	excludesfile = /Users/owenchu/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [push]
 	default = simple
