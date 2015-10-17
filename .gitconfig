@@ -24,4 +24,12 @@
 	st = status
 
 [core]
+	editor = /usr/local/bin/vim
 	excludesfile = /Users/owenchu/.gitignore_global
+
+[push]
+	default = simple
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
