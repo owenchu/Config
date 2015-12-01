@@ -1,12 +1,23 @@
 autoload -U compinit && compinit
 autoload -U colors && colors
+autoload -U zmv
 
 setopt auto_cd
 setopt correct
+setopt hist_ignore_dups
 setopt ignoreeof
 setopt no_beep
 setopt noclobber
 setopt prompt_subst
+
+export EDITOR=/usr/bin/vim
+export PATH=$PATH:/usr/local/share/npm/bin:~/Android/sdk/platform-tools:~/Android/android-ndk-r10e
+
+#
+# Bazel auto-completion
+#
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 #
 # Git auto-completion

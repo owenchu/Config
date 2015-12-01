@@ -45,7 +45,6 @@ set tabstop=4       " number of spaces that a <Tab> in the file counts for
 "
 " UI config
 "
-set cursorline      " highlight cursor line
 set laststatus=2    " always show status line
 set lazyredraw      " redraw only when necessary
 set relativenumber  " show relative line numbers
