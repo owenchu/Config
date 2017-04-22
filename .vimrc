@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/badwolf'
 Plugin 'sjl/gundo.vim'
@@ -47,6 +48,7 @@ set tabstop=4       " number of spaces that a <Tab> in the file counts for
 "
 set laststatus=2    " always show status line
 set lazyredraw      " redraw only when necessary
+set number          " show line number
 set relativenumber  " show relative line numbers
 set ruler           " show cursor position
 set showcmd         " show command in the last line

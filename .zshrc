@@ -1,57 +1,36 @@
-autoload -U compinit && compinit
-autoload -U colors && colors
-autoload -U zmv
+# Path to oh-my-zsh installation.
+export ZSH=/Users/owenchu/.oh-my-zsh
 
-setopt auto_cd
-setopt correct
-setopt hist_ignore_dups
-setopt ignoreeof
-setopt no_beep
-setopt noclobber
-setopt prompt_subst
+# Command execution time stamp shown in the history command output.
+HIST_STAMPS='yyyy-mm-dd'
 
-export EDITOR=/usr/bin/vim
-export PATH=$PATH:/usr/local/share/npm/bin:~/Android/sdk/platform-tools:~/Android/android-ndk-r10e
+plugins=(gitfast)
 
-#
-# Bazel auto-completion
-#
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+# Initialize Oh My Zsh but do not use any of its predefined aliases.
+save_aliases=$(alias -L)
+source $ZSH/oh-my-zsh.sh
+unalias -m '*'
+eval $save_aliases
+unset save_aliases
 
 #
-# Git auto-completion
+# User configuration
 #
-zstyle ':completion:*:*:git:*' script ~/.git-completion.bash
-fpath=(~/.zsh $fpath)
 
-#
-# Prompt
-#
-source ~/.git-prompt.sh
+export EDITOR='/usr/local/bin/vim'
+
 PROMPT='%{$fg_bold[yellow]%}%m [%D{%I:%M %p}] <%~> -%n-%{$reset_color%}
 %{$fg_bold[white]%}$(__git_ps1 "%s")$%{$reset_color%} '
 
-#
-# Aliases
-#
+alias b='brew'
 alias cdg='cd "$(git rev-parse --show-toplevel)"'
 alias cls='/usr/bin/clear'
 alias cp='/bin/cp -i'
 alias f='find'
 alias g='git'
-alias grep='grep --color=tty -d skip'
 alias h='history'
-alias ls='ls -F'
+alias ls='ls -G'
 alias mv='/bin/mv -i'
-alias r='rails'
 alias rm='/bin/rm -i'
-alias sr='screen -r'
 alias v='vim'
 alias vd='vimdiff'
-alias vr='vim -R'
-
-#
-# Plugins
-#
-source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
