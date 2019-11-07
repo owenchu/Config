@@ -1,31 +1,19 @@
 set nocompatible    " make Vim behave in the more useful way
 
-" START VUNDLE SETTINGS (KEEP THESE VUNDLE SETTINGS AT TOP)
-filetype off                " disable file type detection temporarily
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/badwolf'
-Plugin 'sjl/gundo.vim'
-call vundle#end()
-filetype plugin indent on   " enable loading plugin and indent files for
-                            " specific file types
-" END VUNDLE SETTINGS
+" Leader shortcuts
+let mapleader=","   " leader is comma
 
 "
-" Leader shortcuts
+" Vim Plugin management
 "
-let mapleader=","   " leader is comma
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
 "
 " Colors
 "
-colorscheme badwolf
+colorscheme elflord
 syntax on
 
 " dim line numbers
@@ -64,7 +52,7 @@ set smartcase       " override 'ignorecase' if the search pattern contains
                     " upper case characters
 
 " turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :set invhlsearch<CR>
 
 "
 " Movement
@@ -73,7 +61,7 @@ set backspace=indent    " allow backspacing over autoindent
 set backspace+=eol      " allow backspacing over line breaks
 set backspace+=start    " allow backspacing over the start of insert
 
-" move vertically by visual line
+" move vertically by visual line (don't skip wrapped lines)
 nnoremap j gj
 nnoremap k gk
 
@@ -103,6 +91,7 @@ set splitright      " put new window on the right
 set autochdir       " auto change working dir
 set viminfo='100    " maximum number of previously edited files for which
                     " the marks are remembered
+set mouse=a         " enable mouse
 
 " use left/right keys to switch among buffers
 map <right> :bn<CR>
